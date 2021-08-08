@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkbox</title>
+    <link href="/tailwind.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background: #4949b1;
+      }
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        font-size: 55px;
+        line-height: 100px;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .borderOverlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 3px solid deepskyblue;
+        border-radius: 30px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        animation: 0.25s enter;
+      }
+
+      .borderOverlay i {
+        background-color: deepskyblue;
+        font-size: 29px;
+        color: white;
+        top: -15px;
+        right: -15px;
+        padding: 1px;
+        border-radius: 50%;
+        border: 3px solid deepskyblue;
+        border-radius: 30px;
+        position: absolute;
+        animation: 0.75s enter2;
+      }
+
+      @keyframes enter {
+        0% {
+          transform: scale(0) rotate(-90deg);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes enter2 {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(0);
+        }
+        75% {
+          transform: scale(1.25);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="h-300 w-500 mx-40 my-auto">
+      <br /><br /><br />
+      <ul class="m-0 p-0 list-none w-full h-full text-blue-400">
+        <li class=""><i class="ion-social-twitter"></i></li>
+        <li><i class="ion-social-facebook"></i></li>
+        <li><i class="ion-social-github"></i></li>
+        <li><i class="ion-social-whatsapp"></i></li>
+        <li><i class="ion-social-twitch-outline"></i></li>
+        <li><i class="ion-social-youtube"></i></li>
+        <li><i class="ion-social-apple"></i></li>
+        <li><i class="ion-social-instagram"></i></li>
+        <li><i class="ion-social-linkedin"></i></li>
+        <li><i class="ion-social-skype"></i></li>
+      </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+      // const lists = document.querySelectorAll("li");
+      // lists.forEach((list) => {
+      //   list.addEventListener("click", () => {
+      //     // list.children("")
+      //     console.log("A");
+      //   });
+      // });
+
+      $("li").click(function () {
+        if ($(this).find(".borderOverlay").length) {
+          $(this).find(".borderOverlay").remove();
+        } else {
+          $(this).append(
+            '<div class="borderOverlay"><i class = "fa fa-check"></i></div>'
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
